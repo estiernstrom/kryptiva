@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kryptiva.se – Cybersecurity for businesses and individuals</title>
+<title>Kryptiva – Cybersecurity for businesses and individuals</title>
 <meta name="description" content="Kryptiva helps businesses and individuals with cybersecurity: security audits, GRC, penetration testing, encryption, privacy and secure networks.">
 <link rel="canonical" href="https://kryptiva.se/en/">
 <link rel="alternate" hreflang="sv" href="https://kryptiva.se/">
@@ -15,7 +15,7 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="./" aria-label="Kryptiva.se, home">Kryptiva<span>.se</span></a>
+    <a class="brand" href="./" aria-label="Kryptiva, home">Kryptiva</a>
     <nav class="site-nav" aria-label="Main menu">
       <ul>
         <li><a href="#services">Services</a></li>
@@ -30,6 +30,7 @@
 
 <main id="content">
   <section class="hero" aria-labelledby="h-hero">
+    <canvas class="net" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
         <p class="label">Kryptiva · Cybersecurity</p>
@@ -40,17 +41,6 @@
           <a class="btn btn-secondary" href="#contact">Contact us</a>
         </div>
       </div>
-      <figure class="hexdump" role="img" aria-label="The text “Kryptiva.se: cybersecurity for businesses and individuals” shown as hexadecimal bytes.">
-        <figcaption aria-hidden="true">kryptiva.txt, how a computer sees the text</figcaption>
-        <pre aria-hidden="true"><span class="off">0000</span>  <span class="hl">4b</span> <span class="hl">72</span> <span class="hl">79</span> <span class="hl">70</span> <span class="hl">74</span> <span class="hl">69</span> <span class="hl">76</span> <span class="hl">61</span><span class="asc">  |Kryptiva|</span>
-<span class="off">0008</span>  2e 73 65 3a 20 63 79 62<span class="asc">  |.se: cyb|</span>
-<span class="off">0010</span>  65 72 73 65 63 75 72 69<span class="asc">  |ersecuri|</span>
-<span class="off">0018</span>  74 79 20 66 6f 72 20 62<span class="asc">  |ty for b|</span>
-<span class="off">0020</span>  75 73 69 6e 65 73 73 65<span class="asc">  |usinesse|</span>
-<span class="off">0028</span>  73 20 61 6e 64 20 69 6e<span class="asc">  |s and in|</span>
-<span class="off">0030</span>  64 69 76 69 64 75 61 6c<span class="asc">  |dividual|</span>
-<span class="off">0038</span>  73                     <span class="asc">  |s|</span></pre>
-      </figure>
     </div>
   </section>
 
@@ -61,28 +51,34 @@
 
       <div class="group" id="business">
         <h3>For businesses and organisations</h3>
-        <ul class="index">
+        <ul class="svc">
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="11" height="15" rx="1.5"/><path d="M7 7h5M7 10h3"/><circle cx="15.5" cy="15.5" r="3.5"/><path d="M18 18l3 3"/></svg>
             <h4>Security audits</h4>
             <p>We review systems, processes and routines, and show where the risks are and what to fix first.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="5.5" width="14" height="15.5" rx="1.5"/><path d="M9 4h6v3H9zM8.5 12l1.5 1.5 3-3M8.5 17h7"/></svg>
             <h4>GRC: governance, risk and compliance</h4>
             <p>Support with policies, risk assessments and the requirements that laws and standards place on your organisation.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
             <h4>Penetration testing</h4>
             <p>We test your systems the way an attacker would and report the weaknesses with clear recommendations.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M19 9h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v2.5L16 17h-3"/></svg>
             <h4>Advisory and consulting</h4>
             <p>Security expertise when you need it, for a single question or as support through an entire project.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="1.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 14.5v2.5"/></svg>
             <h4>Encryption</h4>
             <p>Advice on protecting data at rest and in transit, and on choosing and introducing the right solutions.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8-7.5 9.5-4.3-1.5-7.5-5-7.5-9.5V6z"/><circle cx="12" cy="10.5" r="2"/><path d="M8.8 15.5a3.4 3.4 0 0 1 6.4 0"/></svg>
             <h4>Privacy and data protection</h4>
             <p>Help handling personal data and sensitive information in a way that protects both customers and the business.</p>
           </li>
@@ -91,20 +87,43 @@
 
       <div class="group" id="individuals">
         <h3>For individuals</h3>
-        <ul class="index">
+        <ul class="svc">
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="13" width="18" height="6" rx="1.5"/><path d="M7 16h.01M10.5 16h.01M8.5 9.5a5 5 0 0 1 7 0M6 7a8.5 8.5 0 0 1 12 0M12 13v-1.5"/></svg>
             <h4>Router, network and internet</h4>
             <p>We install and configure your router and home network so the connection is both stable and secure.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="13" height="9" rx="1"/><path d="M1.5 17h12"/><rect x="16" y="9" width="6" height="11" rx="1"/><path d="M18.5 17.5h1"/></svg>
             <h4>Secure devices and accounts</h4>
             <p>A review of computers, phones and accounts, with help getting started with strong passwords and two-step verification.</p>
           </li>
           <li>
+            <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>
             <h4>Privacy online</h4>
             <p>Advice on protecting your personal information and reducing the traces you leave behind.</p>
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="try" aria-labelledby="h-demo">
+    <div class="wrap demo-grid">
+      <div>
+        <h2 id="h-demo">Try it: encryption</h2>
+        <p class="lead">Encryption makes readable text unreadable to anyone without the right key. Type something in the box and see what the same text looks like once it is encrypted.</p>
+      </div>
+      <div class="cipher" data-cipher>
+        <label for="plain">Plain text</label>
+        <input id="plain" type="text" maxlength="60" value="Hi! This is a secret message." autocomplete="off" spellcheck="false" readonly>
+        <p class="cipher-arrow" aria-hidden="true">is encrypted</p>
+        <p class="cipher-label" id="enc-label">Encrypted with AES-256</p>
+        <output id="enc" class="cipher-out" for="plain" aria-labelledby="enc-label" aria-live="off">Nwuslu8/nlydfrkqCLzisD/ndMF3CtIs93bEcBnwROGD+8ZBm9xcyVwlEjHl</output>
+        <div class="cipher-foot">
+          <button type="button" class="cipher-btn" hidden>New key</button>
+          <p class="cipher-note">The text is encrypted in your browser and is not sent anywhere. Without the key it cannot be read.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -137,21 +156,21 @@
   <section class="section" id="about" aria-labelledby="h-about">
     <div class="wrap">
       <h2 id="h-about">About us</h2>
-      <p>Kryptiva is run by Jonna and Erik Stjernström, two cybersecurity specialists who are married and run the company together. We started Kryptiva to make qualified security help available to everyone, whether you are a large company or a private individual.</p>
+      <p>Kryptiva is run by Jonna and Erik, two cybersecurity specialists who are married and run the company together. We started Kryptiva to make qualified security help available to everyone, whether you are a large company or a private individual.</p>
       <p>We work closely with our clients, explain things without unnecessary jargon, and adapt the work to what is actually needed.</p>
       <ul class="people">
         <li class="person">
           <div class="person-head">
-            <span class="mono-mark" aria-hidden="true">JS</span>
-            <div><h3>Jonna Stjernström</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
+            <span class="mono-mark" aria-hidden="true">J</span>
+            <div><h3>Jonna</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
           </div>
           <p>Jonna has worked as a cybersecurity specialist at Sundsvall Municipality and knows how security work functions in a large public organisation, where requirements, daily operations and limited resources have to fit together.</p>
           <p>She holds a university diploma in systems science from Mid Sweden University.</p>
         </li>
         <li class="person">
           <div class="person-head">
-            <span class="mono-mark" aria-hidden="true">ES</span>
-            <div><h3>Erik Stjernström</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
+            <span class="mono-mark" aria-hidden="true">E</span>
+            <div><h3>Erik</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
           </div>
           <p>Erik combines a background in systems science with specialist study in cybersecurity, so he understands both how systems are built and how they are attacked.</p>
           <p>He holds a bachelor's degree in systems science from Mid Sweden University and a master's degree in cybersecurity from Luleå University of Technology.</p>
@@ -176,5 +195,6 @@
     <p>© 2026 Kryptiva</p>
   </div>
 </footer>
+<script src="../script.js" defer></script>
 </body>
 </html>

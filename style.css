@@ -28,8 +28,8 @@ a:hover { color: #f07fb4; }
 
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(12, 10, 16, 0.82); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
-.brand { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); text-decoration: none; }
-.brand:hover { color: var(--text); }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.brand img { display: block; height: auto; }
 .site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; list-style: none; margin: 0; padding: 0; }
 .site-nav a { transition: background-color 0.15s, color 0.15s; display: inline-block; padding: 0.6rem 0.7rem; min-height: 2.75rem; color: var(--text); text-decoration: none; border-radius: 6px; }
 .site-nav a:hover { background: var(--surface-2); text-decoration: underline; }
@@ -121,6 +121,8 @@ p { margin: 0 0 1rem; max-width: 62ch; }
 
 @media (max-width: 52rem) {
   .demo-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .brand-shield { width: 2.1rem; }
+  .brand-word { width: 8.6rem; }
   .hero { padding: 4.5rem 0 4rem; }
   .section { padding: 3.5rem 0; }
   .site-header { position: static; }

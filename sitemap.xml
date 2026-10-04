@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://kryptiva.se/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://kryptiva.se/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kryptiva.se/en/"/>
+  </url>
+  <url>
+    <loc>https://kryptiva.se/en/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://kryptiva.se/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kryptiva.se/en/"/>
+  </url>
+  <url>
+    <loc>https://kryptiva.se/om-oss/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://kryptiva.se/om-oss/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kryptiva.se/en/about/"/>
+  </url>
+  <url>
+    <loc>https://kryptiva.se/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://kryptiva.se/om-oss/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kryptiva.se/en/about/"/>
+  </url>
+</urlset>

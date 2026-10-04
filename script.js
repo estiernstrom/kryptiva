@@ -1,10 +1,57 @@
-/* Kryptiva.se: scroll reveal, hero network and glow, and the encryption demo. The page works without this file. */
+/* Kryptiva.se: phone menu, fold-out services, scroll reveal, hero network and glow, and the encryption demo. The page works without this file. */
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var phone = window.matchMedia ? window.matchMedia('(max-width: 52rem)') : null;
+  root.classList.add('js-ui');
+
+  /* Phone menu */
+  var navBtn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (navBtn && nav) {
+    var setNav = function (open) {
+      nav.classList.toggle('open', open);
+      navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    navBtn.hidden = false;
+    navBtn.addEventListener('click', function () { setNav(navBtn.getAttribute('aria-expanded') !== 'true'); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) { setNav(false); } });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navBtn.getAttribute('aria-expanded') === 'true') { setNav(false); navBtn.focus(); }
+    });
+  }
+
+  /* Fold-out service groups: buttons on phones, plain headings on wide screens */
+  var toggles = document.querySelectorAll('.group-toggle');
+  if (toggles.length && phone) {
+    var sync = function () {
+      Array.prototype.forEach.call(toggles, function (b) {
+        var list = document.getElementById(b.getAttribute('aria-controls'));
+        if (phone.matches) {
+          var open = b.getAttribute('data-open') === '1';
+          b.removeAttribute('tabindex');
+          b.setAttribute('aria-expanded', open ? 'true' : 'false');
+          list.hidden = !open;
+        } else {
+          b.setAttribute('tabindex', '-1');
+          b.removeAttribute('aria-expanded');
+          list.hidden = false;
+        }
+      });
+    };
+    Array.prototype.forEach.call(toggles, function (b) {
+      b.addEventListener('click', function () {
+        if (!phone.matches) { return; }
+        b.setAttribute('data-open', b.getAttribute('data-open') === '1' ? '0' : '1');
+        sync();
+      });
+    });
+    if (phone.addEventListener) { phone.addEventListener('change', sync); } else if (phone.addListener) { phone.addListener(sync); }
+    sync();
+  }
 
   if (!reduce && 'IntersectionObserver' in window) {
-    var items = document.querySelectorAll('.section h2, .section .lead, .svc li, .steps li, .person, .contact-list, .cipher');
+    var items = document.querySelectorAll('.section h2, .page-title, .section .lead, .svc li, .steps li, .person, .term, .cipher, .proxy');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
@@ -18,22 +65,20 @@
     });
     root.classList.add('js');
 
-    var hero = document.querySelector('.hero');
-    if (hero) {
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        hero.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-        hero.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    Array.prototype.forEach.call(document.querySelectorAll('.hero, .contact'), function (host) {
+      host.addEventListener('pointermove', function (e) {
+        var r = host.getBoundingClientRect();
+        host.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        host.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
       });
-    }
+    });
   }
 
 
-  /* Hero network: points joined by lines. Drawn once; it drifts briefly on load and while the pointer moves over the hero, never endlessly. */
-  (function () {
-    var canvas = document.querySelector('.net');
-    var hero = document.querySelector('.hero');
-    if (!canvas || !hero || !canvas.getContext) { return; }
+  /* Network of points joined by lines, behind the hero and the contact section. Drawn once; it drifts briefly on load and while the pointer moves over it, never endlessly. */
+  Array.prototype.forEach.call(document.querySelectorAll('.net'), function (canvas) {
+    var hero = canvas.parentNode;
+    if (!hero || !canvas.getContext) { return; }
     var ctx = canvas.getContext('2d');
     var pts = [], w = 0, h = 0, until = 0, raf = 0;
     function size() {
@@ -84,7 +129,7 @@
     hero.addEventListener('pointermove', function () { move(2000); });
     var t;
     window.addEventListener('resize', function () { window.clearTimeout(t); t = window.setTimeout(size, 150); });
-  })();
+  });
 
   var box = document.querySelector('[data-cipher]');
   if (!box || !window.crypto || !window.crypto.subtle || !window.TextEncoder) { return; }
@@ -118,6 +163,7 @@
   }
   function encrypt(animate) {
     var mine = ++seq;
+    if (input.value === '') { out.textContent = ''; return Promise.resolve(); }
     var iv = window.crypto.getRandomValues(new Uint8Array(12));
     return window.crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(input.value)).then(function (ct) {
       if (mine !== seq) { return; }

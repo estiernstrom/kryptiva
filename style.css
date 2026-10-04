@@ -1,4 +1,4 @@
-/* Kryptiva.se. Layout: plain descriptive hero over a network of connected points; services as icon cards; a try-it encryption demo; a numbered process; founders with monograms; contact as a deep pink closing band. */
+/* Kryptiva.se. Layout: plain descriptive hero over a network of connected points; services as icon cards (folded behind buttons on phones); an encryption demo presented by Proxy the robot; a numbered process; contact as a terminal panel. About lives on its own page. */
 :root {
   color-scheme: dark;
   --bg: #0c0a10;
@@ -16,6 +16,7 @@
   --max: 70rem;
 }
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 1.0625rem; line-height: 1.65; -webkit-text-size-adjust: 100%; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
@@ -34,14 +35,17 @@ a:hover { color: #f07fb4; }
 .site-nav a { transition: background-color 0.15s, color 0.15s; display: inline-block; padding: 0.6rem 0.7rem; min-height: 2.75rem; color: var(--text); text-decoration: none; border-radius: 6px; }
 .site-nav a:hover { background: var(--surface-2); text-decoration: underline; }
 .site-nav .lang-switch { border: 1px solid var(--accent); color: var(--accent); font-weight: 600; }
+.site-nav a[aria-current="page"] { color: var(--accent); }
+.nav-toggle { display: none; }
 
 h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 1rem; text-wrap: balance; }
 h1 { font-size: clamp(2.2rem, 5.2vw, 3.5rem); font-weight: 750; }
 h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
-h2::before { content: ""; display: block; width: 2.75rem; height: 3px; border-radius: 2px; margin-bottom: 1rem; background: linear-gradient(90deg, var(--accent-strong), var(--accent)); }
+h2::before, .page-title::before { content: ""; display: block; width: 2.75rem; height: 3px; border-radius: 2px; margin-bottom: 1rem; background: linear-gradient(90deg, var(--accent-strong), var(--accent)); }
 p { margin: 0 0 1rem; max-width: 62ch; }
 .label { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 .lead { font-size: 1.2rem; color: var(--muted); }
+.page-title { font-size: clamp(2rem, 5vw, 3rem); }
 .section { padding: 5rem 0; }
 .section + .section { border-top: 1px solid var(--border); }
 
@@ -81,7 +85,16 @@ p { margin: 0 0 1rem; max-width: 62ch; }
 .svc-icon { display: block; color: var(--accent); margin-bottom: 1.1rem; }
 .svc h4 { margin: 0 0 0.5rem; font-size: 1.15rem; letter-spacing: -0.01em; }
 .svc p { margin: 0; color: var(--muted); }
+.group-toggle { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; text-align: left; cursor: default; }
 .demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+
+/* Proxy the robot */
+.proxy { display: flex; align-items: flex-end; gap: 1.25rem; margin-top: 1.5rem; }
+.proxy img { flex: none; width: 8.5rem; height: auto; filter: drop-shadow(0 14px 24px rgba(224, 69, 143, 0.28)); }
+.bubble { position: relative; background: var(--surface); border: 1px solid var(--accent-strong); border-radius: 14px; padding: 1rem 1.15rem; margin-bottom: 3rem; }
+.bubble::before { content: ""; position: absolute; left: -9px; bottom: 1.5rem; width: 16px; height: 16px; background: var(--surface); border-left: 1px solid var(--accent-strong); border-bottom: 1px solid var(--accent-strong); transform: rotate(45deg); }
+.bubble p { margin: 0; }
+.bubble .bubble-name { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
 
 /* Process */
 .steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.5rem; margin: 2.5rem 0 0; padding: 0; }
@@ -100,17 +113,19 @@ p { margin: 0 0 1rem; max-width: 62ch; }
 .person .role { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.98rem; }
 .person p:last-child { margin-bottom: 0; }
 
-/* Contact band */
-.contact { background: linear-gradient(135deg, #a8105a, #6d0a3a); color: #fff; border-top: 0; }
-.contact h2::before { background: #fff; }
-.section + .contact { border-top: 0; }
-.contact .lead { color: #fff; }
-.contact a { color: #fff; }
-.contact a:hover { color: #ffd9ea; }
-.contact :focus-visible { outline-color: #fff; }
-.contact-list { display: flex; flex-wrap: wrap; gap: 1.25rem 3.5rem; margin: 2rem 0 0; padding: 0; }
-.contact-list dt { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: #ffd9ea; }
-.contact-list dd { margin: 0.25rem 0 0; font-size: 1.3rem; font-weight: 600; overflow-wrap: anywhere; }
+/* Contact: terminal panel */
+.contact { position: relative; overflow: hidden; background: radial-gradient(48rem 26rem at var(--gx, 12%) var(--gy, 110%), rgba(176, 20, 94, 0.38), transparent 70%); }
+.contact .wrap { position: relative; }
+.term { max-width: 40rem; margin-top: 2rem; background: #08070b; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px rgba(224, 69, 143, 0.14), 0 30px 60px -30px rgba(224, 69, 143, 0.4); }
+.term-bar { display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.9rem; background: var(--surface-2); border-bottom: 1px solid var(--border); }
+.term-bar span { width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--border); }
+.term-bar span:first-child { background: var(--accent); }
+.term-bar p { margin: 0 0 0 0.5rem; max-width: none; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.contact-list { margin: 0; padding: 1.25rem 1.1rem 1.4rem; font-family: var(--mono); }
+.contact-list dt { color: var(--muted); font-size: 0.9rem; }
+.contact-list dt::before { content: "$ "; color: var(--accent); }
+.contact-list dd { margin: 0.35rem 0 0; font-size: clamp(1.1rem, 4.6vw, 1.6rem); font-weight: 600; overflow-wrap: anywhere; }
+.contact-list dd::before { content: "> "; color: var(--accent); }
 
 .site-footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
 .site-footer p { margin: 0; }
@@ -125,8 +140,29 @@ p { margin: 0 0 1rem; max-width: 62ch; }
   .brand-word { width: 8.6rem; }
   .hero { padding: 4.5rem 0 4rem; }
   .section { padding: 3.5rem 0; }
-  .site-header { position: static; }
-  html { scroll-padding-top: 1rem; }
+  .proxy img { width: 6rem; }
+  .bubble { margin-bottom: 2rem; }
+
+  /* Phone menu: a button that opens the links, in a header that stays in view */
+  .js-ui .nav-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 2.75rem; height: 2.75rem; padding: 0 0.6rem; background: transparent; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+  .nav-toggle span { display: block; height: 2px; border-radius: 2px; background: var(--text); transition: transform 0.2s, opacity 0.2s; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .js-ui .site-nav { display: none; flex-basis: 100%; }
+  .js-ui .site-nav.open { display: block; }
+  .js-ui .site-nav ul { flex-direction: column; align-items: stretch; gap: 0.25rem; padding: 0.25rem 0 0.75rem; }
+  .js-ui .site-nav a { display: block; padding: 0.8rem 0.7rem; }
+  .js-ui .site-nav .lang-switch { text-align: center; margin-top: 0.25rem; }
+
+  /* Phone services: each audience heading is a button that unfolds its cards */
+  .js-ui .group { margin-top: 1rem; }
+  .js-ui .group:first-of-type { margin-top: 2rem; }
+  .js-ui .group > h3 { margin: 0; }
+  .js-ui .group-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; min-height: 3.25rem; padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--accent-strong); border-radius: 10px; cursor: pointer; }
+  .js-ui .group-toggle::after { content: ""; flex: none; width: 0.6rem; height: 0.6rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 0.2s; }
+  .js-ui .group-toggle[aria-expanded="true"]::after { transform: rotate(-135deg); }
+  .js-ui .group .svc { border-top: 0; padding-top: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -126,6 +126,12 @@
     }
     size();
     move(3500);
+    if (window.ResizeObserver) {
+      new ResizeObserver(function () {
+        var r = hero.getBoundingClientRect();
+        if (Math.abs(r.width - w) > 1 || Math.abs(r.height - h) > 1) { size(); }
+      }).observe(hero);
+    }
     hero.addEventListener('pointermove', function () { move(2000); });
     var t;
     window.addEventListener('resize', function () { window.clearTimeout(t); t = window.setTimeout(size, 150); });

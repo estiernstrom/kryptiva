@@ -9,6 +9,17 @@
 <link rel="canonical" href="https://kryptiva.se/en/">
 <link rel="alternate" hreflang="sv" href="https://kryptiva.se/">
 <link rel="alternate" hreflang="en" href="https://kryptiva.se/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kryptiva">
+<meta property="og:title" content="Kryptiva – Cybersecurity for businesses and individuals">
+<meta property="og:description" content="Kryptiva helps businesses and individuals with cybersecurity: security audits, GRC, penetration testing, encryption, privacy and secure networks.">
+<meta property="og:url" content="https://kryptiva.se/en/">
+<meta property="og:image" content="https://kryptiva.se/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Kryptiva", "url": "https://kryptiva.se/en/", "description": "Kryptiva helps businesses and individuals with cybersecurity: security audits, GRC, penetration testing, encryption, privacy and secure networks.", "image": "https://kryptiva.se/img/og.jpg", "email": "info@kryptiva.se", "areaServed": {"@type": "Country", "name": "Sweden"}, "knowsLanguage": ["sv", "en"], "knowsAbout": ["Security audits", "GRC: governance, risk and compliance", "Penetration testing", "Advisory and consulting", "Encryption", "Privacy and data protection", "Secure home networks"]}</script>
 <link rel="icon" type="image/png" href="../img/favicon.png">
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -18,11 +29,12 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="./" aria-label="Kryptiva, home"><img class="brand-shield" src="../img/kryptiva-shield.webp" alt="" width="40" height="48"><img class="brand-word" src="../img/kryptiva-wordmark.webp" alt="" width="164" height="42"></a>
-    <nav class="site-nav" aria-label="Main menu">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu" hidden><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main menu">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#process">How we work</a></li>
-        <li><a href="#about">About us</a></li>
+        <li><a href="about/">About us</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a class="lang-switch" href="../" lang="sv" hreflang="sv">Svenska</a></li>
       </ul>
@@ -52,8 +64,8 @@
       <p class="lead">Whatever the size of the job, you get help from specialists who explain what needs to be done and why.</p>
 
       <div class="group" id="business">
-        <h3>For businesses and organisations</h3>
-        <ul class="svc">
+        <h3><button type="button" class="group-toggle" aria-controls="services-business">For businesses and organisations</button></h3>
+        <ul class="svc" id="services-business">
           <li>
             <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="11" height="15" rx="1.5"/><path d="M7 7h5M7 10h3"/><circle cx="15.5" cy="15.5" r="3.5"/><path d="M18 18l3 3"/></svg>
             <h4>Security audits</h4>
@@ -88,8 +100,8 @@
       </div>
 
       <div class="group" id="individuals">
-        <h3>For individuals</h3>
-        <ul class="svc">
+        <h3><button type="button" class="group-toggle" aria-controls="services-individuals">For individuals</button></h3>
+        <ul class="svc" id="services-individuals">
           <li>
             <svg class="svc-icon" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="13" width="18" height="6" rx="1.5"/><path d="M7 16h.01M10.5 16h.01M8.5 9.5a5 5 0 0 1 7 0M6 7a8.5 8.5 0 0 1 12 0M12 13v-1.5"/></svg>
             <h4>Router, network and internet</h4>
@@ -114,7 +126,13 @@
     <div class="wrap demo-grid">
       <div>
         <h2 id="h-demo">Try it: encryption</h2>
-        <p class="lead">Encryption makes readable text unreadable to anyone without the right key. Type something in the box and see what the same text looks like once it is encrypted.</p>
+        <div class="proxy">
+          <img src="../img/proxy.webp" alt="Proxy, Kryptiva's robot" width="136" height="215">
+          <div class="bubble">
+            <p class="bubble-name" aria-hidden="true">Proxy</p>
+            <p>Hi, I'm Proxy! Encryption makes readable text unreadable to anyone without the right key. Type something in the box and see what the same text looks like once it is encrypted.</p>
+          </div>
+        </div>
       </div>
       <div class="cipher" data-cipher>
         <label for="plain">Plain text</label>
@@ -155,39 +173,17 @@
     </div>
   </section>
 
-  <section class="section" id="about" aria-labelledby="h-about">
-    <div class="wrap">
-      <h2 id="h-about">About us</h2>
-      <p>Kryptiva is run by Jonna and Erik, two cybersecurity specialists who are married and run the company together. We started Kryptiva to make qualified security help available to everyone, whether you are a large company or a private individual.</p>
-      <p>We work closely with our clients, explain things without unnecessary jargon, and adapt the work to what is actually needed.</p>
-      <ul class="people">
-        <li class="person">
-          <div class="person-head">
-            <span class="mono-mark" aria-hidden="true">J</span>
-            <div><h3>Jonna</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
-          </div>
-          <p>Jonna has worked as a cybersecurity specialist at Sundsvall Municipality and knows how security work functions in a large public organisation, where requirements, daily operations and limited resources have to fit together.</p>
-          <p>She holds a university diploma in systems science from Mid Sweden University.</p>
-        </li>
-        <li class="person">
-          <div class="person-head">
-            <span class="mono-mark" aria-hidden="true">E</span>
-            <div><h3>Erik</h3><p class="role">Cybersecurity specialist and co-founder</p></div>
-          </div>
-          <p>Erik combines a background in systems science with specialist study in cybersecurity, so he understands both how systems are built and how they are attacked.</p>
-          <p>He holds a bachelor's degree in systems science from Mid Sweden University and a master's degree in cybersecurity from Luleå University of Technology.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
   <section class="section contact" id="contact" aria-labelledby="h-contact">
+    <canvas class="net" aria-hidden="true"></canvas>
     <div class="wrap">
       <h2 id="h-contact">Get in touch</h2>
       <p class="lead">Want to know more or discuss a project? Get in touch and we will tell you how we can help.</p>
-      <dl class="contact-list">
-        <div><dt>Email</dt><dd><a href="mailto:info@kryptiva.se">info@kryptiva.se</a></dd></div>
-      </dl>
+      <div class="term" role="group" aria-label="Contact details">
+        <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><p>contact@kryptiva</p></div>
+        <dl class="contact-list">
+          <div><dt>Email</dt><dd><a href="mailto:info@kryptiva.se">info@kryptiva.se</a></dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 </main>

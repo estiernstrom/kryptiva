@@ -1,0 +1,4 @@
+Contact: mailto:info@kryptiva.se
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: sv, en
+Canonical: https://kryptiva.se/.well-known/security.txt
